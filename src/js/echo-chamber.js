@@ -38,6 +38,9 @@ class EchoChamber {
       // Start background animations
       this.startBackgroundAnimations();
       
+      // Load saved theme
+      this.loadSavedTheme();
+      
       // Mark as initialized
       this.isInitialized = true;
       
@@ -132,6 +135,43 @@ class EchoChamber {
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
       themeToggle.addEventListener('click', () => this.toggleTheme());
+    }
+
+    // Philosophy orb click - using arrow function to preserve 'this' context
+    const philosophyOrb = document.querySelector('.philosophy-orb');
+    console.log('Philosophy orb found:', philosophyOrb);
+    if (philosophyOrb) {
+      const handleOrbClickBound = () => {
+        console.log('Philosophy orb clicked! Context:', this);
+        this.handleOrbClick();
+      };
+      
+      philosophyOrb.addEventListener('click', (e) => {
+        console.log('Philosophy orb click event fired!');
+        e.preventDefault();
+        e.stopPropagation();
+        handleOrbClickBound();
+      });
+      
+      // Also add keyboard support
+      philosophyOrb.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          console.log('Philosophy orb activated with keyboard!');
+          handleOrbClickBound();
+        }
+      });
+      
+      // Test click handler directly
+      console.log('Testing orb click handler directly...');
+      setTimeout(() => {
+        console.log('Direct handleOrbClick test:');
+        this.handleOrbClick();
+      }, 2000);
+      
+      console.log('Philosophy orb event listeners added');
+    } else {
+      console.error('Philosophy orb not found!');
     }
 
     // Keyboard navigation
@@ -311,8 +351,21 @@ class EchoChamber {
       const category = quote.dataset.category;
       const shouldShow = filter === 'all' || category === filter;
       
-      quote.style.display = shouldShow ? 'block' : 'none';
-      if (shouldShow) visibleCount++;
+      // Use opacity and transform for smooth transitions
+      if (shouldShow) {
+        quote.style.display = 'block';
+        quote.style.opacity = '1';
+        quote.style.transform = 'translateY(0)';
+        visibleCount++;
+      } else {
+        quote.style.opacity = '0';
+        quote.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+          if (quote.style.opacity === '0') {
+            quote.style.display = 'none';
+          }
+        }, 300);
+      }
     });
     
     // Announce filter change
@@ -320,6 +373,7 @@ class EchoChamber {
     
     // Log interaction
     this.logInteraction('filter_applied', { filter, visibleCount });
+    console.log(`Filter applied: ${filter}, showing ${visibleCount} quotes`);
   }
 
   generateMoreQuotes() {
@@ -329,17 +383,30 @@ class EchoChamber {
       const originalText = button.querySelector('.control-text').textContent;
       button.querySelector('.control-text').textContent = 'Summoning...';
       button.disabled = true;
+      button.style.opacity = '0.7';
+      
+      console.log('Generating more quotes...');
       
       // Simulate loading (in real app, this would fetch new quotes)
       setTimeout(() => {
         // Shuffle existing quotes to create illusion of new content
         this.shuffleQuotes();
         
+        // Add some visual feedback
+        const quotes = document.querySelectorAll('.quote-entity');
+        quotes.forEach((quote, index) => {
+          setTimeout(() => {
+            quote.style.animation = 'quote-appear 0.5s ease-out';
+          }, index * 100);
+        });
+        
         // Reset button
         button.querySelector('.control-text').textContent = originalText;
         button.disabled = false;
+        button.style.opacity = '1';
         
         this.announceToScreenReader('New philosophical thoughts have emerged in the chamber.');
+        console.log('Quote shuffle complete');
       }, 2000);
     }
     
@@ -369,24 +436,41 @@ class EchoChamber {
     }
   }
 
+  loadSavedTheme() {
+    const savedTheme = localStorage.getItem('echo-chamber-theme') || 'dark';
+    const html = document.documentElement;
+    const button = document.getElementById('themeToggle');
+    
+    html.setAttribute('data-theme', savedTheme);
+    if (button) {
+      button.setAttribute('aria-pressed', savedTheme === 'light' ? 'true' : 'false');
+    }
+    
+    console.log('Loaded theme:', savedTheme);
+  }
+
   toggleTheme() {
     const html = document.documentElement;
     const button = document.getElementById('themeToggle');
     
-    if (html.dataset.theme === 'light') {
-      html.dataset.theme = 'dark';
-      button.setAttribute('aria-pressed', 'false');
-      this.announceToScreenReader('Switched to dark theme');
-    } else {
-      html.dataset.theme = 'light';
-      button.setAttribute('aria-pressed', 'true');
+    // Check current theme
+    const currentTheme = html.getAttribute('data-theme') || 'dark';
+    
+    if (currentTheme === 'dark') {
+      html.setAttribute('data-theme', 'light');
+      if (button) button.setAttribute('aria-pressed', 'true');
       this.announceToScreenReader('Switched to light theme');
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      if (button) button.setAttribute('aria-pressed', 'false');
+      this.announceToScreenReader('Switched to dark theme');
     }
     
     // Save preference
-    localStorage.setItem('echo-chamber-theme', html.dataset.theme);
+    localStorage.setItem('echo-chamber-theme', html.getAttribute('data-theme'));
     
-    this.logInteraction('theme_toggle', { theme: html.dataset.theme });
+    console.log('Theme toggled to:', html.getAttribute('data-theme'));
+    this.logInteraction('theme_toggle', { theme: html.getAttribute('data-theme') });
   }
 
   startBackgroundAnimations() {
@@ -497,6 +581,82 @@ class EchoChamber {
 
   logPerformance(label, duration) {
     console.log(`Performance - ${label}: ${duration.toFixed(2)}ms`);
+  }
+
+  handleOrbClick() {
+    console.log('handleOrbClick called');
+    // Show a random philosophical inspiration from postmodern philosophers in original languages
+    const inspirations = [
+      "Cogito ergo sum... (Descartes)",
+      "L'existence précède l'essence... (Sartre)",
+      "Was mich nicht umbringt... (Nietzsche)",
+      "La liberté, c'est le choix... (Sartre)",
+      "Être-pour-la-mort... (Heidegger)",
+      "L'enfer, c'est les autres... (Sartre)",
+      "Die Grenzen meiner Sprache... (Wittgenstein)",
+      "Nous ne savons jamais d'avance... (Deleuze)",
+      "The obscenity of the superego... (Žižek)",
+      "Il n'y a pas de hors-texte... (Derrida)",
+      "Le pouvoir, ce n'est pas... (Foucault)",
+      "La carte précède le territoire... (Baudrillard)",
+      "La différance n'est ni un mot... (Derrida)",
+      "Savoir c'est pouvoir... (Foucault)",
+      "La fin des grands récits... (Lyotard)",
+      "Le désert du réel... (Baudrillard)",
+      "Wovon man nicht sprechen kann... (Wittgenstein)",
+      "Gott ist tot... (Nietzsche)",
+      "Das Sein selbst bleibt... (Heidegger)",
+      "L'inconscient est structuré... (Lacan)"
+    ];
+    
+    const randomInspiration = inspirations[Math.floor(Math.random() * inspirations.length)];
+    console.log('Random inspiration:', randomInspiration);
+    this.showTooltip(randomInspiration);
+    this.logInteraction('orb_clicked');
+  }
+
+  showTooltip(message) {
+    console.log('showTooltip called with message:', message);
+    
+    // Remove existing tooltip
+    const existingTooltip = document.querySelector('.orb-tooltip');
+    if (existingTooltip) {
+      console.log('Removing existing tooltip');
+      existingTooltip.remove();
+    }
+
+    // Create new tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'orb-tooltip';
+    tooltip.textContent = message;
+    console.log('Created tooltip element:', tooltip);
+    
+    const orb = document.querySelector('.philosophy-orb');
+    console.log('Found orb for tooltip:', orb);
+    if (orb) {
+      orb.appendChild(tooltip);
+      console.log('Tooltip appended to orb');
+      
+      // Animate in
+      setTimeout(() => {
+        tooltip.classList.add('visible');
+        console.log('Tooltip made visible');
+      }, 10);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        tooltip.classList.remove('visible');
+        console.log('Tooltip hidden');
+        setTimeout(() => {
+          if (tooltip.parentNode) {
+            tooltip.remove();
+            console.log('Tooltip removed');
+          }
+        }, 300);
+      }, 3000);
+    } else {
+      console.error('Could not find orb element for tooltip');
+    }
   }
 
   showError(message) {

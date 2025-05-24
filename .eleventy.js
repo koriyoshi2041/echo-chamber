@@ -30,6 +30,11 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("slice", function(array, start, end) {
+    if (!Array.isArray(array)) return [];
+    return array.slice(start, end);
+  });
+
   // 自定义短代码
   eleventyConfig.addShortcode("quote", function(text, author, translation) {
     return `

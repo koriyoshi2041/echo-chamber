@@ -11,7 +11,7 @@ description: "在思想的迷宫中，每一个声音都寻找着它的回响"
       <span class="subtitle">// 回声室</span>
     </h1>
     
-    <div class="philosophy-orb" aria-hidden="true">
+    <div class="philosophy-orb" role="button" tabindex="0" aria-label="点击获取哲学灵感">
       <div class="orb-reflection"></div>
       <div class="orb-core"></div>
       <div class="orb-pulse"></div>
@@ -25,7 +25,7 @@ description: "在思想的迷宫中，每一个声音都寻找着它的回响"
 
   <section class="quote-universe" id="quote-universe" aria-label="Philosophy quotes collection">
     <div class="universe-grid">
-      {% for quote in quotes | shuffle | slice(0, 9) %}
+      {% for quote in quotes | slice(0, 15) %}
         <article class="quote-entity" data-category="{{ quote.category }}" data-id="{{ quote.id }}" data-period="{{ quote.period }}">
           <div class="quote-surface">
             <div class="quote-frame">
@@ -99,24 +99,36 @@ description: "在思想的迷宫中，每一个声音都寻找着它的回响"
         <span class="crystal-face">All</span>
         <span class="crystal-glow"></span>
       </button>
-      <button class="nav-crystal" data-filter="existence" aria-pressed="false">
-        <span class="crystal-face">Existence</span>
+      <button class="nav-crystal" data-filter="reality" aria-pressed="false">
+        <span class="crystal-face">Reality</span>
         <span class="crystal-glow"></span>
       </button>
-      <button class="nav-crystal" data-filter="freedom" aria-pressed="false">
-        <span class="crystal-face">Freedom</span>
+      <button class="nav-crystal" data-filter="language" aria-pressed="false">
+        <span class="crystal-face">Language</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="wisdom" aria-pressed="false">
+        <span class="crystal-face">Wisdom</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="power" aria-pressed="false">
+        <span class="crystal-face">Power</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="existence" aria-pressed="false">
+        <span class="crystal-face">Existence</span>
         <span class="crystal-glow"></span>
       </button>
       <button class="nav-crystal" data-filter="consciousness" aria-pressed="false">
         <span class="crystal-face">Mind</span>
         <span class="crystal-glow"></span>
       </button>
-      <button class="nav-crystal" data-filter="time" aria-pressed="false">
-        <span class="crystal-face">Time</span>
+      <button class="nav-crystal" data-filter="freedom" aria-pressed="false">
+        <span class="crystal-face">Freedom</span>
         <span class="crystal-glow"></span>
       </button>
-      <button class="nav-crystal" data-filter="language" aria-pressed="false">
-        <span class="crystal-face">Language</span>
+      <button class="nav-crystal" data-filter="love" aria-pressed="false">
+        <span class="crystal-face">Love</span>
         <span class="crystal-glow"></span>
       </button>
     </div>

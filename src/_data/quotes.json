@@ -16,7 +16,7 @@
     "author": "Blaise Pascal",
     "period": "Modern",
     "language": "fr",
-    "category": "emotion",
+    "category": "consciousness",
     "echoes": []
   },
   {
@@ -36,7 +36,7 @@
     "author": "Socrates",
     "period": "Ancient",
     "language": "en",
-    "category": "self-knowledge",
+    "category": "consciousness",
     "echoes": []
   },
   {
@@ -46,7 +46,7 @@
     "author": "Friedrich Nietzsche",
     "period": "Modern",
     "language": "en",
-    "category": "resilience",
+    "category": "wisdom",
     "echoes": []
   },
   {
@@ -56,7 +56,7 @@
     "author": "Jean-Paul Sartre",
     "period": "Contemporary",
     "language": "fr",
-    "category": "relationships",
+    "category": "love",
     "echoes": []
   },
   {
@@ -76,7 +76,7 @@
     "author": "George Berkeley",
     "period": "Modern",
     "language": "en",
-    "category": "perception",
+    "category": "reality",
     "echoes": []
   },
   {
@@ -86,7 +86,7 @@
     "author": "Albert Camus",
     "period": "Contemporary",
     "language": "fr",
-    "category": "absurdism",
+    "category": "existence",
     "echoes": []
   },
   {
@@ -106,7 +106,7 @@
     "author": "Friedrich Nietzsche",
     "period": "Modern",
     "language": "de",
-    "category": "religion",
+    "category": "existence",
     "echoes": []
   },
   {
@@ -136,7 +136,7 @@
     "author": "Jean-Paul Sartre",
     "period": "Contemporary",
     "language": "en",
-    "category": "relationships",
+    "category": "love",
     "echoes": []
   },
   {
@@ -156,7 +156,7 @@
     "author": "Joseph Campbell",
     "period": "Contemporary",
     "language": "en",
-    "category": "courage",
+    "category": "wisdom",
     "echoes": []
   },
   {
@@ -166,7 +166,7 @@
     "author": "Epicurus",
     "period": "Ancient",
     "language": "fr",
-    "category": "death",
+    "category": "wisdom",
     "echoes": []
   },
   {
@@ -196,7 +196,257 @@
     "author": "Jean-Paul Sartre",
     "period": "Contemporary",
     "language": "fr",
-    "category": "existentialism",
+    "category": "existence",
+    "echoes": []
+  },
+  {
+    "id": 21,
+    "text": "The only way to be a true revolutionary today is to make revolution possible tomorrow.",
+    "translation": "今天成为真正革命者的唯一方式，就是让明天的革命成为可能。",
+    "author": "Slavoj Žižek",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "power",
+    "echoes": []
+  },
+  {
+    "id": 22,
+    "text": "We feel free because we lack the very language to articulate our unfreedom.",
+    "translation": "我们感到自由，是因为我们缺乏表达不自由的语言。",
+    "author": "Slavoj Žižek",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "freedom",
+    "echoes": []
+  },
+  {
+    "id": 23,
+    "text": "The true ethical test is not only the readiness to save the victims, but also - even more, perhaps - the ruthless dedication to annihilating those who made them victims.",
+    "translation": "真正的伦理考验不仅在于拯救受害者的意愿，更在于——或许更重要的是——无情地摧毁制造受害者的人。",
+    "author": "Slavoj Žižek",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "ethics",
+    "echoes": []
+  },
+  {
+    "id": 24,
+    "text": "Il n'y a pas de machine désirante qui existe en dehors de l'assemblage machinique qui la sélectionne.",
+    "translation": "不存在脱离选择它的机器集合体而存在的欲望机器。",
+    "author": "Gilles Deleuze",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "desire",
+    "echoes": []
+  },
+  {
+    "id": 25,
+    "text": "A concept is a brick. It can be used to build a courthouse of reason or it can be thrown through the window.",
+    "translation": "概念就是一块砖。它可以用来建造理性的法院，也可以用来砸破窗户。",
+    "author": "Gilles Deleuze",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 26,
+    "text": "Le rhizome procède par variation, expansion, conquête, capture, piqûre.",
+    "translation": "根茎通过变异、扩张、征服、捕获、刺透而前进。",
+    "author": "Gilles Deleuze",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 27,
+    "text": "Philosophy is not in a state of external reflection on other domains, but in a state of active and internal alliance with them.",
+    "translation": "哲学不是对其他领域的外在反思状态，而是与它们积极的内在联盟状态。",
+    "author": "Gilles Deleuze",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "wisdom",
+    "echoes": []
+  },
+  {
+    "id": 28,
+    "text": "Today's predominant form of ideology is not to believe in your ideology too much, but to believe in it just the right amount.",
+    "translation": "今天意识形态的主导形式不是过分相信你的意识形态，而是恰到好处地相信它。",
+    "author": "Slavoj Žižek",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "power",
+    "echoes": []
+  },
+  {
+    "id": 29,
+    "text": "Love feels like a great misfortune, a monstrous parasite, a permanent state of emergency that ruins all small pleasures.",
+    "translation": "爱情感觉像是一场巨大的不幸，一个可怕的寄生虫，一种破坏所有小快乐的永久紧急状态。",
+    "author": "Slavoj Žižek",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "love",
+    "echoes": []
+  },
+  {
+    "id": 30,
+    "text": "Nous ne savons jamais d'avance comment quelqu'un va apprendre.",
+    "translation": "我们永远无法预知某人将如何学习。",
+    "author": "Gilles Deleuze",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "wisdom",
+    "echoes": []
+  },
+  {
+    "id": 31,
+    "text": "Il n'y a pas de hors-texte.",
+    "translation": "没有本文之外的东西。",
+    "author": "Jacques Derrida",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 32,
+    "text": "La différance is the systematic play of differences.",
+    "translation": "延异是差异的系统性游戏。",
+    "author": "Jacques Derrida",
+    "period": "Postmodern",
+    "language": "en",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 33,
+    "text": "L'écriture précède la parole.",
+    "translation": "书写先于言语。",
+    "author": "Jacques Derrida",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 34,
+    "text": "Le pouvoir, ce n'est pas une institution, et ce n'est pas une structure, ce n'est pas une certaine puissance dont certains seraient dotés : c'est le nom qu'on prête à une situation stratégique complexe dans une société donnée.",
+    "translation": "权力不是一种制度，也不是一种结构，不是某些人拥有的某种力量：它是我们在特定社会中赋予复杂战略形势的名称。",
+    "author": "Michel Foucault",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "power",
+    "echoes": []
+  },
+  {
+    "id": 35,
+    "text": "Knowledge is not for knowing: knowledge is for cutting.",
+    "translation": "知识不是为了知道：知识是为了切割。",
+    "author": "Michel Foucault",
+    "period": "Postmodern",
+    "language": "en",
+    "category": "power",
+    "echoes": []
+  },
+  {
+    "id": 36,
+    "text": "La société disciplinaire remplace la société de souveraineté.",
+    "translation": "规训社会取代了主权社会。",
+    "author": "Michel Foucault",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "power",
+    "echoes": []
+  },
+  {
+    "id": 37,
+    "text": "Le simulacre précède le réel.",
+    "translation": "拟像先于真实。",
+    "author": "Jean Baudrillard",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 38,
+    "text": "The desert of the real itself.",
+    "translation": "真实本身的沙漠。",
+    "author": "Jean Baudrillard",
+    "period": "Postmodern",
+    "language": "en",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 39,
+    "text": "Nous vivons dans l'hyperréalité des simulacres.",
+    "translation": "我们生活在拟像的超真实中。",
+    "author": "Jean Baudrillard",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 40,
+    "text": "La condition postmoderne est l'incrédulité à l'égard des métarécits.",
+    "translation": "后现代状况是对元叙事的不信任。",
+    "author": "Jean-François Lyotard",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 41,
+    "text": "Science has always been in conflict with narratives.",
+    "translation": "科学总是与叙事发生冲突。",
+    "author": "Jean-François Lyotard",
+    "period": "Postmodern",
+    "language": "en",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 42,
+    "text": "Le différend est un cas de conflit entre deux parties qui ne peut pas être tranché équitablement faute d'une règle de jugement applicable aux deux argumentations.",
+    "translation": "争端是两方之间的冲突情况，由于缺乏适用于两种论证的判断规则，无法公平地解决。",
+    "author": "Jean-François Lyotard",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "ethics",
+    "echoes": []
+  },
+  {
+    "id": 43,
+    "text": "What we call our data are really our own constructions of other people's constructions.",
+    "translation": "我们称之为数据的东西实际上是我们对他人建构的建构。",
+    "author": "Clifford Geertz",
+    "period": "Postmodern",
+    "language": "en",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 44,
+    "text": "L'archive n'est ni la mémoire ni l'anamnèse, ni le retour à l'origine.",
+    "translation": "档案既不是记忆，也不是回忆，也不是回到起源。",
+    "author": "Jacques Derrida",
+    "period": "Postmodern",
+    "language": "fr",
+    "category": "time",
+    "echoes": []
+  },
+  {
+    "id": 45,
+    "text": "Every act of communication is a miracle of translation.",
+    "translation": "每一次交流都是翻译的奇迹。",
+    "author": "Ken Liu",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "language",
     "echoes": []
   }
 ] 
