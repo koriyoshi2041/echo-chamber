@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <radialGradient id="orbGradient" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe66d;stop-opacity:0.8" />
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0a0a0a" rx="4"/>
+  
+  <!-- Echo rings -->
+  <circle cx="16" cy="16" r="12" fill="none" stroke="rgba(255,107,107,0.2)" stroke-width="0.5"/>
+  <circle cx="16" cy="16" r="8" fill="none" stroke="rgba(78,205,196,0.3)" stroke-width="0.5"/>
+  <circle cx="16" cy="16" r="4" fill="none" stroke="rgba(255,230,109,0.4)" stroke-width="0.5"/>
+  
+  <!-- Central orb -->
+  <circle cx="16" cy="16" r="6" fill="url(#orbGradient)" filter="url(#glow)"/>
+  
+  <!-- Reflection -->
+  <ellipse cx="14" cy="14" rx="2" ry="3" fill="rgba(255,255,255,0.3)"/>
+</svg> 

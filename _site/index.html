@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Echo Chamber //回声室</title>
+  <meta name="description" content="在思想的迷宫中，每一个声音都寻找着它的回响">
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Critical CSS -->
+  <style>
+    /* Critical CSS for immediate rendering */
+    :root {
+      --primary-bg: #0a0a0a;
+      --secondary-bg: #1a1a1a;
+      --accent-color: #ff6b6b;
+      --text-primary: #ffffff;
+      --text-secondary: #cccccc;
+      --text-muted: #888888;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .no-js .progressive-enhancement {
+      display: none;
+    }
+  </style>
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/styles/main.css">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  
+  <!-- Meta tags for social sharing -->
+  <meta property="og:title" content="Echo Chamber //回声室">
+  <meta property="og:description" content="在思想的迷宫中，每一个声音都寻找着它的回响">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/og-image.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Echo Chamber //回声室">
+  <meta name="twitter:description" content="在思想的迷宫中，每一个声音都寻找着它的回响">
+  <meta name="twitter:image" content="/assets/images/og-image.jpg">
+  
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-navbutton-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Security headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+  
+  <!-- Performance hints -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Echo Chamber",
+    "alternateName": "回声室",
+    "description": "在思想的迷宫中，每一个声音都寻找着它的回响",
+    "url": "",
+    "author": {
+      "@type": "Organization",
+      "name": "Echo Chamber Team"
+    }
+  }
+  </script>
+</head>
+
+<body class="">
+  <!-- Skip to main content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+    <div class="loading-content">
+      <div class="loading-orb">
+        <div class="orb-core"></div>
+        <div class="orb-rings">
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+        </div>
+      </div>
+      <p class="loading-text">Initializing philosophical resonance...</p>
+    </div>
+  </div>
+
+  <!-- Page content -->
+  <div class="page-wrapper" id="main">
+    
+<main class="echo-chamber" role="main">
+  <header class="chamber-entrance">
+    <h1 class="chamber-title">
+      <span class="glitch" data-text="Echo Chamber" aria-hidden="true">Echo Chamber</span>
+      <span class="subtitle">// 回声室</span>
+    </h1>
+    
+    <div class="philosophy-orb" aria-hidden="true">
+      <div class="orb-reflection"></div>
+      <div class="orb-core"></div>
+      <div class="orb-pulse"></div>
+    </div>
+
+    <p class="chamber-manifesto">
+      在思想的迷宫中，每一个声音都寻找着它的回响。<br>
+      <em>In the labyrinth of thought, every voice seeks its echo.</em>
+    </p>
+  </header>
+
+  <section class="quote-universe" id="quote-universe" aria-label="Philosophy quotes collection">
+    <div class="universe-grid">
+      
+    </div>
+
+    <div class="universe-controls">
+      <button class="generate-more" id="generateMore" aria-label="Generate more quotes">
+        <span class="control-text">Summon More Thoughts</span>
+        <span class="control-icon">∞</span>
+      </button>
+    </div>
+  </section>
+
+  <aside class="reflection-panel" aria-label="Recent echoes and interactions">
+    <header class="panel-header">
+      <h2>Recent Echoes</h2>
+      <div class="echo-pulse" aria-hidden="true"></div>
+    </header>
+    
+    <div class="echo-stream" id="echoStream">
+      <div class="echo-placeholder">
+        <p>The chamber awaits your first echo...</p>
+        <p class="placeholder-sub">Share your thoughts and watch them resonate.</p>
+      </div>
+    </div>
+
+    <div class="echo-input-container" style="display: none;" id="echoInputContainer">
+      <form class="echo-form" id="echoForm">
+        <textarea class="echo-input" id="echoInput" placeholder="Add your echo to the conversation..." aria-label="Echo input" rows="3"></textarea>
+        <div class="echo-form-actions">
+          <button type="button" class="echo-cancel" id="echoCancel">Cancel</button>
+          <button type="submit" class="echo-submit" id="echoSubmit">Echo</button>
+        </div>
+      </form>
+    </div>
+  </aside>
+
+  <nav class="chamber-navigation" aria-label="Quote filters">
+    <div class="nav-grid">
+      <button class="nav-crystal active" data-filter="all" aria-pressed="true">
+        <span class="crystal-face">All</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="existence" aria-pressed="false">
+        <span class="crystal-face">Existence</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="freedom" aria-pressed="false">
+        <span class="crystal-face">Freedom</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="consciousness" aria-pressed="false">
+        <span class="crystal-face">Mind</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="time" aria-pressed="false">
+        <span class="crystal-face">Time</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="language" aria-pressed="false">
+        <span class="crystal-face">Language</span>
+        <span class="crystal-glow"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="chamber-background" aria-hidden="true">
+    <div class="bg-particles"></div>
+    <div class="bg-waves"></div>
+    <div class="bg-fractals"></div>
+  </div>
+</main>
+
+<script type="module" src="/js/echo-chamber.js"></script> 
+  </div>
+
+  <!-- Accessibility announcements -->
+  <div class="sr-only" aria-live="polite" id="announcements"></div>
+
+  <!-- Theme toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+    <span class="toggle-icon">◐</span>
+  </button>
+
+  <!-- Progressive enhancement marker -->
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Service Worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+
+  <!-- Analytics (privacy-friendly) -->
+  <script>
+    // Minimal analytics implementation
+    if (!navigator.doNotTrack) {
+      // Basic page view tracking
+      console.log('Page view:', window.location.pathname);
+    }
+  </script>
+</body>
+</html> 
