@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: "Echo Chamber //回声室"
+description: "在思想的迷宫中，每一个声音都寻找着它的回响"
+---
+
+<main class="echo-chamber" role="main">
+  <header class="chamber-entrance">
+    <h1 class="chamber-title">
+      <span class="glitch" data-text="Echo Chamber" aria-hidden="true">Echo Chamber</span>
+      <span class="subtitle">// 回声室</span>
+    </h1>
+    
+    <div class="philosophy-orb" aria-hidden="true">
+      <div class="orb-reflection"></div>
+      <div class="orb-core"></div>
+      <div class="orb-pulse"></div>
+    </div>
+
+    <p class="chamber-manifesto">
+      在思想的迷宫中，每一个声音都寻找着它的回响。<br>
+      <em>In the labyrinth of thought, every voice seeks its echo.</em>
+    </p>
+  </header>
+
+  <section class="quote-universe" id="quote-universe" aria-label="Philosophy quotes collection">
+    <div class="universe-grid">
+      {% for quote in quotes | shuffle | head(9) %}
+        <article class="quote-entity" data-category="{{ quote.category }}" data-id="{{ quote.id }}" data-period="{{ quote.period }}">
+          <div class="quote-surface">
+            <div class="quote-frame">
+              <blockquote class="philosophical-quote">
+                <p class="quote-text" lang="{{ quote.language }}">{{ quote.text }}</p>
+                {% if quote.translation %}
+                <p class="quote-translation">{{ quote.translation }}</p>
+                {% endif %}
+                <cite class="quote-author">
+                  <span class="author-name">{{ quote.author }}</span>
+                  <span class="author-period">{{ quote.period }}</span>
+                </cite>
+              </blockquote>
+            </div>
+          </div>
+          
+          <div class="echo-chamber-mini">
+            <div class="echo-count" aria-label="Number of echoes">
+              <span class="count-number">{{ quote.echoes.length }}</span>
+              <span class="count-label">echoes</span>
+            </div>
+            <button class="echo-trigger" aria-label="Add echo to this quote" data-quote-id="{{ quote.id }}">
+              <span class="echo-icon">◉</span>
+              <span class="echo-ripple"></span>
+            </button>
+          </div>
+
+          <div class="quote-metadata">
+            <span class="meta-category">{{ quote.category }}</span>
+            <span class="meta-language">{{ quote.language }}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="universe-controls">
+      <button class="generate-more" id="generateMore" aria-label="Generate more quotes">
+        <span class="control-text">Summon More Thoughts</span>
+        <span class="control-icon">∞</span>
+      </button>
+    </div>
+  </section>
+
+  <aside class="reflection-panel" aria-label="Recent echoes and interactions">
+    <header class="panel-header">
+      <h2>Recent Echoes</h2>
+      <div class="echo-pulse" aria-hidden="true"></div>
+    </header>
+    
+    <div class="echo-stream" id="echoStream">
+      <div class="echo-placeholder">
+        <p>The chamber awaits your first echo...</p>
+        <p class="placeholder-sub">Share your thoughts and watch them resonate.</p>
+      </div>
+    </div>
+
+    <div class="echo-input-container" style="display: none;" id="echoInputContainer">
+      <form class="echo-form" id="echoForm">
+        <textarea class="echo-input" id="echoInput" placeholder="Add your echo to the conversation..." aria-label="Echo input" rows="3"></textarea>
+        <div class="echo-form-actions">
+          <button type="button" class="echo-cancel" id="echoCancel">Cancel</button>
+          <button type="submit" class="echo-submit" id="echoSubmit">Echo</button>
+        </div>
+      </form>
+    </div>
+  </aside>
+
+  <nav class="chamber-navigation" aria-label="Quote filters">
+    <div class="nav-grid">
+      <button class="nav-crystal active" data-filter="all" aria-pressed="true">
+        <span class="crystal-face">All</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="existence" aria-pressed="false">
+        <span class="crystal-face">Existence</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="freedom" aria-pressed="false">
+        <span class="crystal-face">Freedom</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="consciousness" aria-pressed="false">
+        <span class="crystal-face">Mind</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="time" aria-pressed="false">
+        <span class="crystal-face">Time</span>
+        <span class="crystal-glow"></span>
+      </button>
+      <button class="nav-crystal" data-filter="language" aria-pressed="false">
+        <span class="crystal-face">Language</span>
+        <span class="crystal-glow"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="chamber-background" aria-hidden="true">
+    <div class="bg-particles"></div>
+    <div class="bg-waves"></div>
+    <div class="bg-fractals"></div>
+  </div>
+</main>
+
+<script type="module" src="/js/echo-chamber.js"></script> 

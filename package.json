@@ -1,0 +1,45 @@
+{
+  "name": "echo-chamber",
+  "version": "1.0.0",
+  "description": "Echo Chamber //回声室 - A postmodern philosophical quote sharing platform",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --watch",
+    "start": "netlify dev",
+    "clean": "rm -rf _site",
+    "test": "jest",
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun",
+    "deploy": "netlify deploy --prod --dir=_site"
+  },
+  "keywords": [
+    "philosophy",
+    "quotes",
+    "jamstack",
+    "11ty",
+    "postmodern",
+    "art",
+    "interactive"
+  ],
+  "author": "Echo Chamber Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@playwright/test": "^1.40.0",
+    "@lhci/cli": "^0.12.0",
+    "jest": "^29.7.0",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1"
+  },
+  "dependencies": {
+    "netlify-cli": "^17.8.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 

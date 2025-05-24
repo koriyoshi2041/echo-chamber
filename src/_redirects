@@ -1,0 +1,14 @@
+# Single Page Application fallback
+/*    /index.html   200
+
+# Redirect old paths (if any)
+/echo-chamber/*  /  301
+/quotes/*        /  301
+
+# API routes (if needed in future)
+/api/*  /.netlify/functions/:splat  200
+
+# Security redirects
+/.env*  /  404
+/.git*  /  404
+/node_modules/*  /  404 

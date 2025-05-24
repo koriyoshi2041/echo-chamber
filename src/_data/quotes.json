@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "text": "I think, therefore I am.",
+    "translation": "我思故我在。",
+    "author": "René Descartes",
+    "period": "Modern",
+    "language": "en",
+    "category": "existence",
+    "echoes": []
+  },
+  {
+    "id": 2,
+    "text": "Le cœur a ses raisons que la raison ne connaît point.",
+    "translation": "心灵有其理性所不知的理由。",
+    "author": "Blaise Pascal",
+    "period": "Modern",
+    "language": "fr",
+    "category": "emotion",
+    "echoes": []
+  },
+  {
+    "id": 3,
+    "text": "Der Mensch ist zur Freiheit verurteilt.",
+    "translation": "人类被判定为自由。",
+    "author": "Jean-Paul Sartre",
+    "period": "Contemporary",
+    "language": "de",
+    "category": "freedom",
+    "echoes": []
+  },
+  {
+    "id": 4,
+    "text": "The unexamined life is not worth living.",
+    "translation": "未经审视的人生不值得过。",
+    "author": "Socrates",
+    "period": "Ancient",
+    "language": "en",
+    "category": "self-knowledge",
+    "echoes": []
+  },
+  {
+    "id": 5,
+    "text": "What does not kill me makes me stronger.",
+    "translation": "凡不能毁灭我的，必使我强大。",
+    "author": "Friedrich Nietzsche",
+    "period": "Modern",
+    "language": "en",
+    "category": "resilience",
+    "echoes": []
+  },
+  {
+    "id": 6,
+    "text": "L'enfer, c'est les autres.",
+    "translation": "他人即地狱。",
+    "author": "Jean-Paul Sartre",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "relationships",
+    "echoes": []
+  },
+  {
+    "id": 7,
+    "text": "Die Welt ist alles, was der Fall ist.",
+    "translation": "世界是所有事实的总和。",
+    "author": "Ludwig Wittgenstein",
+    "period": "Contemporary",
+    "language": "de",
+    "category": "reality",
+    "echoes": []
+  },
+  {
+    "id": 8,
+    "text": "To be is to be perceived.",
+    "translation": "存在就是被感知。",
+    "author": "George Berkeley",
+    "period": "Modern",
+    "language": "en",
+    "category": "perception",
+    "echoes": []
+  },
+  {
+    "id": 9,
+    "text": "Il faut imaginer Sisyphe heureux.",
+    "translation": "我们必须想象西西弗是幸福的。",
+    "author": "Albert Camus",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "absurdism",
+    "echoes": []
+  },
+  {
+    "id": 10,
+    "text": "Man is born free, and everywhere he is in chains.",
+    "translation": "人生而自由，却无往不在枷锁之中。",
+    "author": "Jean-Jacques Rousseau",
+    "period": "Enlightenment",
+    "language": "en",
+    "category": "freedom",
+    "echoes": []
+  },
+  {
+    "id": 11,
+    "text": "Gott ist tot.",
+    "translation": "上帝已死。",
+    "author": "Friedrich Nietzsche",
+    "period": "Modern",
+    "language": "de",
+    "category": "religion",
+    "echoes": []
+  },
+  {
+    "id": 12,
+    "text": "The only true wisdom is in knowing you know nothing.",
+    "translation": "真正的智慧在于知道自己一无所知。",
+    "author": "Socrates",
+    "period": "Ancient",
+    "language": "en",
+    "category": "wisdom",
+    "echoes": []
+  },
+  {
+    "id": 13,
+    "text": "Être et temps sont inséparables.",
+    "translation": "存在与时间是不可分割的。",
+    "author": "Martin Heidegger",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "time",
+    "echoes": []
+  },
+  {
+    "id": 14,
+    "text": "Hell is other people.",
+    "translation": "他人即地狱。",
+    "author": "Jean-Paul Sartre",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "relationships",
+    "echoes": []
+  },
+  {
+    "id": 15,
+    "text": "Das Sein ist das Seiende selbst.",
+    "translation": "存在就是存在者本身。",
+    "author": "Martin Heidegger",
+    "period": "Contemporary",
+    "language": "de",
+    "category": "existence",
+    "echoes": []
+  },
+  {
+    "id": 16,
+    "text": "The cave you fear to enter holds the treasure you seek.",
+    "translation": "你害怕进入的洞穴中藏着你寻找的宝藏。",
+    "author": "Joseph Campbell",
+    "period": "Contemporary",
+    "language": "en",
+    "category": "courage",
+    "echoes": []
+  },
+  {
+    "id": 17,
+    "text": "La mort n'est rien pour nous.",
+    "translation": "死亡对我们来说什么都不是。",
+    "author": "Epicurus",
+    "period": "Ancient",
+    "language": "fr",
+    "category": "death",
+    "echoes": []
+  },
+  {
+    "id": 18,
+    "text": "Wovon man nicht sprechen kann, darüber muss man schweigen.",
+    "translation": "对于不可说的，我们必须保持沉默。",
+    "author": "Ludwig Wittgenstein",
+    "period": "Contemporary",
+    "language": "de",
+    "category": "language",
+    "echoes": []
+  },
+  {
+    "id": 19,
+    "text": "The mind is everything. What you think you become.",
+    "translation": "心智就是一切。你想什么，你就成为什么。",
+    "author": "Buddha",
+    "period": "Ancient",
+    "language": "en",
+    "category": "consciousness",
+    "echoes": []
+  },
+  {
+    "id": 20,
+    "text": "L'existence précède l'essence.",
+    "translation": "存在先于本质。",
+    "author": "Jean-Paul Sartre",
+    "period": "Contemporary",
+    "language": "fr",
+    "category": "existentialism",
+    "echoes": []
+  }
+] 
