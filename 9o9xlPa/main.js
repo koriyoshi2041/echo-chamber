@@ -146,6 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('nav-rhizome').addEventListener('click', () => loadScene('rhizome_labyrinth'));
     document.getElementById('nav-theatre').addEventListener('click', () => loadScene('symbol_theatre'));
+    
+    // 添加返回Echo Chamber功能
+    const returnButton = document.getElementById('return-to-chamber');
+    if (returnButton) {
+        returnButton.addEventListener('click', () => {
+            const returnURL = sessionStorage.getItem('echoChamberReturnURL') || '/';
+            sessionStorage.removeItem('echoChamberReturnURL');
+            window.location.href = returnURL;
+        });
+    }
 
     setInterval(() => {
         if (generalTexts.randomScreen && generalTexts.randomScreen.length > 0) {
@@ -153,13 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
              showGlobalMessage(getRandomText(generalTexts.randomScreen));
            }
         }
-    }, 20000); 
-
-
-
-
-
-
-
+    }, 20000);
 });
 
