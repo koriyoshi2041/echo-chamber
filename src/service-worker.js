@@ -4,8 +4,8 @@
  */
 
 const CACHE_PREFIX = 'echo-chamber';
-const STATIC_CACHE = `${CACHE_PREFIX}-static-v1.3.0`;
-const DYNAMIC_CACHE = `${CACHE_PREFIX}-dynamic-v1.3.0`;
+const STATIC_CACHE = `${CACHE_PREFIX}-static-v1.4.0`;
+const DYNAMIC_CACHE = `${CACHE_PREFIX}-dynamic-v1.4.0`;
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -18,7 +18,6 @@ const STATIC_ASSETS = [
   '/assets/icons/favicon.svg',
   '/assets/icons/icon-192x192.png',
   '/assets/icons/icon-512x512.png',
-  '/9o9xlpa/index.html',
   '/9o9xlpa/style.css',
   '/9o9xlpa/main.js',
   '/9o9xlpa/game_texts.js',
@@ -30,7 +29,7 @@ const STATIC_ASSETS = [
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installing v1.3.0...');
+  console.log('Service Worker: Installing v1.4.0...');
   
   event.waitUntil(
     caches.open(STATIC_CACHE)
@@ -50,7 +49,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activating v1.3.0...');
+  console.log('Service Worker: Activating v1.4.0...');
   
   event.waitUntil(
     caches.keys()
@@ -85,7 +84,26 @@ self.addEventListener('fetch', (event) => {
   if (!url.startsWith('http')) {
     return;
   }
-  
+
+  // 对HTML文档使用网络优先策略，确保获取最新的CSP头部
+  if (request.destination === 'document' || url.includes('.html')) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          console.log('Service Worker: Network first for HTML', url);
+          // 对于HTML文档，总是使用网络版本以获取最新的CSP头部
+          return response;
+        })
+        .catch((error) => {
+          console.log('Service Worker: Network failed for HTML, trying cache', url);
+          // 网络失败时才使用缓存
+          return caches.match(request);
+        })
+    );
+    return;
+  }
+
+  // 对其他资源使用缓存优先策略
   event.respondWith(
     caches.match(request)
       .then((cachedResponse) => {
