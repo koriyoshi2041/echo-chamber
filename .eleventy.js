@@ -7,6 +7,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/service-worker.js");
   eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy("src/_redirects");
+  // 添加哲学游戏文件支持
+  eleventyConfig.addPassthroughCopy("9o9xlPa");
+  // 确保assets文件夹内容被正确复制
+  eleventyConfig.addPassthroughCopy("src/assets/**/*");
 
   // 自定义过滤器
   eleventyConfig.addFilter("shuffle", function(array) {

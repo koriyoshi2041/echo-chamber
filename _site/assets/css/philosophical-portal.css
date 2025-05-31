@@ -1,0 +1,403 @@
+/* ========================================
+   Philosophical Portal - Echo Chamber Integration
+   独立的3D数字艺术装置样式（保留原有哲学球）
+   ======================================== */
+
+/* 新增的3D哲学门户 - 不影响原有元素 */
+.philosophical-portal {
+    position: relative;
+    margin: 3rem auto;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    z-index: 50;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.philosophical-portal:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+.portal-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* 3D几何核心 - 减小尺寸 */
+.portal-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: portal-float 8s ease-in-out infinite;
+}
+
+.core-geometry {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: core-rotate 20s linear infinite;
+}
+
+.face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, 
+        var(--accent-color, #c9a96e) 0%, 
+        var(--accent-secondary, #7c9885) 50%, 
+        var(--accent-tertiary, #8b7355) 100%);
+    border: 2px solid var(--border-color, rgba(201, 169, 110, 0.3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--text-primary, #f8f6f0);
+    backdrop-filter: blur(10px);
+    border-radius: 20% 50% 30% 70% / 40% 60% 20% 80%;
+    opacity: 0.8;
+    text-shadow: 0 0 20px currentColor;
+    box-shadow: 
+        0 0 30px var(--border-color, rgba(201, 169, 110, 0.3)),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+/* 六面体的每个面定位 - 适配小尺寸 */
+.face-1 { transform: rotateY(0deg) translateZ(40px); }
+.face-2 { transform: rotateY(60deg) translateZ(40px); }
+.face-3 { transform: rotateY(120deg) translateZ(40px); }
+.face-4 { transform: rotateY(180deg) translateZ(40px); }
+.face-5 { transform: rotateY(240deg) translateZ(40px); }
+.face-6 { transform: rotateY(300deg) translateZ(40px); }
+
+/* 门户光晕效果 */
+.portal-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, 
+        var(--border-color, rgba(201, 169, 110, 0.2)) 0%, 
+        var(--accent-secondary, rgba(124, 152, 133, 0.1)) 50%, 
+        transparent 70%);
+    border-radius: 50%;
+    animation: glow-pulse 4s ease-in-out infinite alternate;
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+/* 3D文字轨道 - 改进动画效果 */
+.portal-text-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    animation: orbit-rotate 30s linear infinite;
+    pointer-events: none;
+}
+
+.orbit-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.orbit-text span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: var(--accent-secondary, #7c9885);
+    text-shadow: 0 0 10px currentColor;
+    white-space: nowrap;
+    transform: translate(-50%, -50%) rotateX(15deg) translateZ(90px);
+    opacity: 0.7;
+    font-family: var(--font-serif, 'Times New Roman'), serif;
+    letter-spacing: 0.5px;
+    animation: text-wave 6s ease-in-out infinite;
+}
+
+/* 粒子系统 */
+.portal-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.portal-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-color, #c9a96e);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particle-orbit 12s linear infinite;
+    animation-delay: var(--delay, 0s);
+    transform-origin: 100px 100px;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.portal-particle::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--text-primary, white);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: particle-twinkle 3s ease-in-out infinite;
+}
+
+/* 动画定义 - 改进版本 */
+@keyframes portal-float {
+    0%, 100% { 
+        transform: translate(-50%, -50%) translateY(0px) rotateY(0deg);
+    }
+    25% { 
+        transform: translate(-50%, -50%) translateY(-8px) rotateY(90deg);
+    }
+    50% { 
+        transform: translate(-50%, -50%) translateY(-4px) rotateY(180deg);
+    }
+    75% { 
+        transform: translate(-50%, -50%) translateY(-12px) rotateY(270deg);
+    }
+}
+
+@keyframes core-rotate {
+    from { transform: rotateY(0deg) rotateX(0deg); }
+    to { transform: rotateY(360deg) rotateX(360deg); }
+}
+
+@keyframes glow-pulse {
+    0% { 
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% { 
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes orbit-rotate {
+    from { transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg); }
+    to { transform: translate(-50%, -50%) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes text-wave {
+    0%, 100% { 
+        transform: translate(-50%, -50%) rotateX(15deg) translateZ(90px);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translate(-50%, -50%) rotateX(-15deg) translateZ(105px);
+        opacity: 1;
+    }
+}
+
+@keyframes particle-orbit {
+    from { 
+        transform: rotate(var(--angle, 0deg)) translateX(100px) rotateZ(0deg);
+    }
+    to { 
+        transform: rotate(var(--angle, 0deg)) translateX(100px) rotateZ(360deg);
+    }
+}
+
+@keyframes particle-twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* 悬停状态增强 */
+.portal-core:hover .core-geometry {
+    animation-duration: 10s;
+}
+
+.portal-core:hover .portal-glow {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.portal-core:hover .orbit-text span {
+    color: var(--accent-color, #c9a96e);
+    opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .philosophical-portal {
+        margin: 2rem auto;
+        width: 150px;
+        height: 150px;
+    }
+    
+    .portal-core {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .face {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .face-1, .face-2, .face-3, .face-4, .face-5, .face-6 { 
+        transform: rotateY(calc(var(--rotation, 0) * 60deg)) translateZ(30px); 
+    }
+    
+    .portal-text-orbit {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .orbit-text span {
+        font-size: 0.6rem;
+        transform: translate(-50%, -50%) rotateX(15deg) translateZ(60px);
+    }
+    
+    .portal-particles {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .portal-particle {
+        transform-origin: 75px 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophical-portal {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .portal-core {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .face {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .orbit-text span {
+        font-size: 0.5rem;
+    }
+}
+
+/* 确保与Echo Chamber主题兼容 */
+[data-theme="light"] .philosophical-portal .face {
+    background: linear-gradient(135deg, 
+        var(--accent-color) 0%, 
+        var(--accent-secondary) 50%, 
+        var(--accent-tertiary) 100%);
+    box-shadow: 
+        0 0 30px var(--border-color),
+        inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏容器样式 */
+#philosophical-game-container {
+    background: var(--primary-bg, linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%));
+}
+
+/* 与Echo Chamber的其他元素配合 */
+.chamber-entrance .philosophical-portal {
+    /* 在chamber-entrance中的额外样式调整 */
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* 确保不干扰原有的philosophy-orb */
+.philosophy-orb {
+    /* 保持原有的哲学球样式不变 */
+}
+
+/* 动画性能优化 */
+@media (prefers-reduced-motion: reduce) {
+    .portal-core,
+    .core-geometry,
+    .portal-glow,
+    .portal-text-orbit,
+    .portal-particle,
+    .loading-symbol {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* 游戏加载界面 */
+.game-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary-bg, linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal, 100);
+    backdrop-filter: blur(20px);
+}
+
+.loading-content {
+    text-align: center;
+    color: var(--text-primary, #f8f6f0);
+}
+
+.loading-symbol {
+    font-size: clamp(3rem, 8vw, 4rem);
+    color: var(--accent-color, #c9a96e);
+    margin-bottom: 2rem;
+    animation: loading-spin 2s linear infinite;
+    text-shadow: 0 0 30px currentColor;
+}
+
+.loading-content p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.loading-sub {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* 动画关键帧 */
+@keyframes loading-spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+} 

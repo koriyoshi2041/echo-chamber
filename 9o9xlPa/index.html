@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成·坍缩 - 概念原型</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[var(--color-bg-main)] text-[var(--color-text-primary)] h-screen w-screen overflow-hidden flex flex-col items-center justify-center">
+
+    <header class="absolute top-0 left-0 p-4 z-[5000] w-full flex justify-center items-center space-x-4">
+        <button id="nav-rhizome" class="dev-nav-button">根茎迷宫</button>
+        <button id="nav-theatre" class="dev-nav-button">符号剧场</button>
+    </header>
+
+    <main id="main-game-content" class="w-full h-full relative">
+        <div id="game-world" class="w-full h-full">
+            <!-- Scenes will be loaded here -->
+        </div>
+        <div id="global-effects-overlay" class="absolute inset-0 w-full h-full pointer-events-none z-[6000]">
+            <!-- Global screen-wide visual effects will be injected here -->
+        </div>
+    </main>
+
+    <div id="dynamic-popup-container" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-bg-main)] bg-opacity-90 p-4 md:p-6 rounded-md text-white text-lg md:text-xl hidden z-[7000] max-w-sm shadow-2xl backdrop-blur-sm border border-[var(--color-accent2)] shadow-[0_0_20px_var(--color-accent2)]">
+        <p id="dynamic-popup-text" class="text-center"></p>
+    </div>
+
+    <div id="loading-overlay" class="fixed inset-0 bg-[var(--color-bg-main)] bg-opacity-95 flex items-center justify-center z-[9999]" style="display: none;">
+        <p id="loading-text" class="text-xl text-[var(--color-accent2)] filter-neon-glow-cyan p-8 text-center"></p>
+    </div>
+    
+    <div id="global-message-popup" class="fixed bottom-4 right-4 bg-[var(--color-bg-secondary)] bg-opacity-90 p-3 rounded-md text-[var(--color-text-primary)] text-sm shadow-lg z-[8000] hidden" style="display: none; max-width: 280px;">
+        <p id="global-message-text" class="text-center"></p>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

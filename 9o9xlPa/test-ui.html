@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI测试 - Echo Chamber风格</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[var(--color-bg-main)] text-[var(--color-text-primary)] min-h-screen p-8">
+    
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-[var(--color-accent1)] filter-neon-glow text-center">
+            UI组件测试 - Echo Chamber风格
+        </h1>
+        
+        <div class="space-y-8">
+            <!-- 导航按钮测试 -->
+            <section class="text-center">
+                <h2 class="text-2xl mb-4 text-[var(--color-accent2)]">导航按钮</h2>
+                <div class="flex justify-center gap-4">
+                    <button class="dev-nav-button">根茎迷宫</button>
+                    <button class="dev-nav-button">符号剧场</button>
+                </div>
+            </section>
+            
+            <!-- 通道按钮测试 -->
+            <section class="text-center">
+                <h2 class="text-2xl mb-4 text-[var(--color-accent2)]">通道选项</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="passage">扭曲的通道</div>
+                    <div class="passage">闪烁的裂隙</div>
+                    <div class="passage">不稳定的奇点</div>
+                    <div class="passage">虚无的彼岸</div>
+                </div>
+            </section>
+            
+            <!-- 剧场按钮测试 -->
+            <section class="text-center">
+                <h2 class="text-2xl mb-4 text-[var(--color-accent2)]">剧场控制</h2>
+                <div class="flex flex-wrap justify-center gap-4 items-center">
+                    <button id="interact-btn">触发混乱</button>
+                    <input type="text" placeholder="输入无用之词..." value="" class="w-48">
+                    <button id="bwo-attempt-btn">尝试: 无器官化</button>
+                    <button id="to-rhizome-btn">逃回迷宫</button>
+                </div>
+            </section>
+            
+            <!-- 符号显示区域测试 -->
+            <section>
+                <h2 class="text-2xl mb-4 text-[var(--color-accent2)] text-center">符号显示区域</h2>
+                <div id="symbol-display" class="w-full h-64 relative p-4 overflow-hidden mx-auto">
+                    <div class="absolute text-4xl text-[var(--color-accent1)]" style="left: 20%; top: 30%;">∑</div>
+                    <div class="absolute text-3xl text-[var(--color-accent3)]" style="left: 60%; top: 20%;">∆</div>
+                    <div class="absolute text-5xl text-[var(--color-accent6)]" style="left: 40%; top: 60%;">◊</div>
+                    <div class="absolute text-2xl text-[var(--color-accent7)]" style="left: 70%; top: 70%;">∞</div>
+                </div>
+            </section>
+            
+            <div class="text-center text-[var(--color-text-secondary)] mt-12">
+                <p>所有UI元素现在都采用有机流动的设计，具有轻柔的浮动和振动效果。</p>
+                <p>配色方案与Echo Chamber完全一致。</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html> 

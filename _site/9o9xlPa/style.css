@@ -1,0 +1,914 @@
+:root {
+    /* Echo Chamber compatible color palette */
+    --color-bg-main: #0f0f23; /* Deep space blue */
+    --color-bg-secondary: #1a1a2e; /* Darker blue */
+    --color-text-primary: #f8f6f0; /* Warm white */
+    --color-text-secondary: #d4d1c7; /* Muted warm */
+    
+    /* Elegant accent colors inspired by Echo Chamber */
+    --color-accent1: #c9a96e; /* Warm gold - Echo Chamber primary */
+    --color-accent2: #7c9885; /* Sage green - Echo Chamber secondary */ 
+    --color-accent3: #8b7355; /* Warm brown - Echo Chamber tertiary */
+    --color-accent4: #ff6b6b; /* Soft coral */
+    --color-accent5: #4ecdc4; /* Soft teal */
+    --color-accent6: #96ceb4; /* Mint green */
+    --color-accent7: #9b8ce8; /* Soft lavender */
+
+    --color-fragment: #2a2f45; /* Muted blue for fragments */
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.filter-neon-glow {
+    text-shadow: 0 0 4px var(--color-accent1), 0 0 8px var(--color-accent1), 0 0 12px var(--color-accent1), 0 0 16px #c9a96e, 0 0 24px #c9a96e, 0 0 32px #c9a96e;
+}
+
+.filter-neon-glow-cyan {
+    text-shadow: 0 0 4px var(--color-accent2), 0 0 8px var(--color-accent2), 0 0 12px var(--color-accent2), 0 0 16px #7c9885, 0 0 24px #7c9885, 0 0 32px #7c9885;
+}
+
+.filter-neon-glow-yellow {
+     text-shadow: 0 0 4px var(--color-accent3), 0 0 8px var(--color-accent3), 0 0 12px var(--color-accent3), 0 0 16px #8b7355, 0 0 24px #8b7355, 0 0 32px #8b7355;
+}
+
+.filter-neon-glow-green {
+    text-shadow: 0 0 4px var(--color-accent6), 0 0 8px var(--color-accent6), 0 0 12px var(--color-accent6), 0 0 16px #96ceb4, 0 0 24px #96ceb4, 0 0 32px #96ceb4;
+}
+
+/* Organic, flowing passage buttons */
+.passage {
+    padding: 1rem 2rem;
+    margin: 0.75rem;
+    border: 2px solid var(--color-accent1);
+    color: var(--color-accent1);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 10;
+    background: rgba(201, 169, 110, 0.05);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    
+    /* Organic shape using border-radius */
+    border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%;
+    
+    /* Subtle floating animation */
+    animation: organic-float 8s ease-in-out infinite;
+    
+    /* Glass morphism effect */
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(201, 169, 110, 0.2);
+}
+
+/* Individual floating variations for each passage */
+.passage:nth-child(1) { animation-delay: 0s; }
+.passage:nth-child(2) { animation-delay: -2s; }
+.passage:nth-child(3) { animation-delay: -4s; }
+.passage:nth-child(4) { animation-delay: -6s; }
+
+.passage::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, var(--color-accent1), var(--color-accent2), var(--color-accent3));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.passage::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: radial-gradient(circle, var(--color-accent1), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.passage:hover {
+    background: rgba(201, 169, 110, 0.15);
+    color: var(--color-text-primary);
+    transform: scale(1.05) translateY(-5px);
+    border-color: var(--color-accent2);
+    border-radius: 40% 60% 30% 70% / 40% 70% 30% 60%;
+    
+    /* Gentle vibration */
+    animation: organic-float 8s ease-in-out infinite, gentle-shake 0.5s ease-in-out;
+}
+
+.passage:hover::before {
+    opacity: 1;
+}
+
+.passage:hover::after {
+    width: 100%; height: 100%;
+    opacity: 0.1;
+}
+
+/* Updated navigation buttons */
+.dev-nav-button {
+    background: linear-gradient(135deg, var(--color-accent1), var(--color-accent3));
+    color: var(--color-bg-main);
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    
+    /* Organic button shape */
+    border-radius: 50% 20% 80% 20% / 20% 50% 20% 80%;
+    
+    /* Floating animation */
+    animation: nav-button-float 6s ease-in-out infinite;
+    
+    /* Glass effect */
+    box-shadow: 
+        0 8px 32px rgba(201, 169, 110, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dev-nav-button:nth-child(1) { animation-delay: 0s; }
+.dev-nav-button:nth-child(2) { animation-delay: -3s; }
+
+.dev-nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.dev-nav-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-radius: 20% 50% 20% 80% / 50% 20% 80% 20%;
+    box-shadow: 
+        0 12px 40px rgba(201, 169, 110, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    /* Add vibration */
+    animation: nav-button-float 6s ease-in-out infinite, button-vibrate 0.3s ease-in-out;
+}
+
+.dev-nav-button:hover::before {
+    left: 100%;
+}
+
+/* Updated theatre buttons */
+button {
+    background: linear-gradient(135deg, var(--color-accent1), var(--color-accent2));
+    color: var(--color-bg-main);
+    padding: 12px 24px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    
+    /* Organic shapes */
+    border-radius: 60% 40% 80% 20% / 40% 60% 20% 80%;
+    
+    /* Gentle floating */
+    animation: button-gentle-float 10s ease-in-out infinite;
+    
+    /* Glass morphism */
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 8px 32px rgba(201, 169, 110, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+button:nth-child(odd) { animation-delay: 0s; }
+button:nth-child(even) { animation-delay: -5s; }
+
+button:hover {
+    transform: translateY(-2px) scale(1.03);
+    border-radius: 40% 60% 20% 80% / 60% 40% 80% 20%;
+    box-shadow: 
+        0 12px 40px rgba(201, 169, 110, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    /* Gentle shake */
+    animation: button-gentle-float 10s ease-in-out infinite, micro-shake 0.4s ease-in-out;
+}
+
+/* Special styling for specific buttons */
+#interact-btn {
+    background: linear-gradient(135deg, var(--color-accent4), var(--color-accent1));
+}
+
+#bwo-attempt-btn {
+    background: linear-gradient(135deg, var(--color-accent6), var(--color-accent5));
+}
+
+#to-rhizome-btn {
+    background: linear-gradient(135deg, var(--color-accent3), var(--color-accent7));
+}
+
+/* Animation Keyframes */
+@keyframes organic-float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%;
+    }
+    25% { 
+        transform: translateY(-8px) rotate(1deg);
+        border-radius: 50% 50% 60% 40% / 70% 20% 80% 30%;
+    }
+    50% { 
+        transform: translateY(-4px) rotate(0deg);
+        border-radius: 40% 60% 30% 70% / 40% 60% 30% 70%;
+    }
+    75% { 
+        transform: translateY(-12px) rotate(-1deg);
+        border-radius: 70% 30% 80% 20% / 30% 70% 20% 80%;
+    }
+}
+
+@keyframes nav-button-float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        border-radius: 50% 20% 80% 20% / 20% 50% 20% 80%;
+    }
+    33% { 
+        transform: translateY(-5px) rotate(1deg);
+        border-radius: 20% 80% 20% 50% / 80% 20% 50% 20%;
+    }
+    66% { 
+        transform: translateY(-2px) rotate(-1deg);
+        border-radius: 80% 20% 50% 20% / 20% 80% 20% 50%;
+    }
+}
+
+@keyframes button-gentle-float {
+    0%, 100% { 
+        transform: translateY(0px);
+        border-radius: 60% 40% 80% 20% / 40% 60% 20% 80%;
+    }
+    50% { 
+        transform: translateY(-6px);
+        border-radius: 40% 60% 20% 80% / 60% 40% 80% 20%;
+    }
+}
+
+@keyframes gentle-shake {
+    0%, 100% { transform: scale(1.05) translateY(-5px) translateX(0); }
+    10% { transform: scale(1.05) translateY(-5px) translateX(-1px); }
+    20% { transform: scale(1.05) translateY(-5px) translateX(1px); }
+    30% { transform: scale(1.05) translateY(-5px) translateX(-1px); }
+    40% { transform: scale(1.05) translateY(-5px) translateX(1px); }
+    50% { transform: scale(1.05) translateY(-5px) translateX(0); }
+}
+
+@keyframes button-vibrate {
+    0%, 100% { transform: translateY(-3px) scale(1.05) rotate(0deg); }
+    25% { transform: translateY(-3px) scale(1.05) rotate(1deg); }
+    75% { transform: translateY(-3px) scale(1.05) rotate(-1deg); }
+}
+
+@keyframes micro-shake {
+    0%, 100% { transform: translateY(-2px) scale(1.03) translateX(0); }
+    25% { transform: translateY(-2px) scale(1.03) translateX(-0.5px); }
+    75% { transform: translateY(-2px) scale(1.03) translateX(0.5px); }
+}
+
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.glitch-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: glitch-anim-line 0.5s infinite alternate;
+}
+
+@keyframes glitch-anim-line {
+    0% { transform: translateY(var(--glitch-y-start, 0px)) translateX(var(--glitch-x-start, 0px)); opacity: 0.3; }
+    25% { opacity: 0.8; background-color: var(--glitch-color, rgba(255,0,255,0.5)); }
+    50% { transform: translateY(var(--glitch-y-mid, 5px)) translateX(var(--glitch-x-mid, 0px)); }
+    75% { opacity: 0.2; background-color: var(--glitch-color-alt, rgba(0,255,255,0.5));}
+    100% { transform: translateY(var(--glitch-y-end, -5px)) translateX(var(--glitch-x-end, 0px)); opacity: 0.7; }
+}
+
+/* Organic symbol display area */
+#symbol-display {
+    border: 3px solid var(--color-accent2);
+    background: rgba(20, 25, 45, 0.7);
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Organic border shape */
+    border-radius: 60% 40% 30% 70% / 40% 60% 70% 30%;
+    
+    /* Enhanced glass morphism */
+    box-shadow: 
+        0 16px 64px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(124, 152, 133, 0.2),
+        0 0 40px rgba(124, 152, 133, 0.1);
+    
+    /* Gentle breathing animation */
+    animation: symbol-display-breathe 15s ease-in-out infinite;
+}
+
+@keyframes symbol-display-breathe {
+    0%, 100% { 
+        border-radius: 60% 40% 30% 70% / 40% 60% 70% 30%;
+        box-shadow: 
+            0 16px 64px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(124, 152, 133, 0.2),
+            0 0 40px rgba(124, 152, 133, 0.1);
+    }
+    50% { 
+        border-radius: 40% 60% 70% 30% / 60% 40% 30% 70%;
+        box-shadow: 
+            0 20px 80px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(124, 152, 133, 0.3),
+            0 0 60px rgba(124, 152, 133, 0.15);
+    }
+}
+
+#symbol-display span.draggable-symbol {
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.15s ease-out, color 0.2s ease-out, text-shadow 0.2s ease-out;
+    position: relative; 
+}
+#symbol-display span.draggable-symbol::before,
+#symbol-display span.draggable-symbol::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none; /* Important */
+}
+#symbol-display span.draggable-symbol:hover::before {
+    opacity: 0.5;
+    transform: scale(1.5) rotate(45deg);
+    border: 1px dashed currentColor;
+    filter: blur(1px);
+}
+#symbol-display span.draggable-symbol:hover::after {
+    opacity: 0.3;
+    transform: scale(1.2) rotate(-30deg);
+    box-shadow: 0 0 10px currentColor, 0 0 15px currentColor inset;
+}
+
+#symbol-display span.draggable-symbol:hover {
+    transform: scale(1.15) rotate(3deg) !important; 
+    filter: drop-shadow(0 0 10px currentColor);
+    text-shadow: 0 0 5px currentColor, 0 0 10px #fff;
+}
+#symbol-display span.draggable-symbol:active {
+    cursor: grabbing;
+    transform: scale(1.3) !important;
+    filter: drop-shadow(0 0 15px var(--color-accent6));
+}
+
+.symbol-trail-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 90; /* Below symbol being dragged */
+}
+
+.symbol-fragment-particle {
+    position: absolute;
+    pointer-events: none;
+    font-size: 0.8em; /* smaller than original symbol */
+}
+
+#symbol-display p { 
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+#symbol-display p:hover {
+    transform: skew(-10deg, -5deg) scale(1.1);
+    color: var(--color-accent2);
+    text-shadow: 0 0 8px var(--color-accent2);
+}
+
+.rhizome-line {
+    stroke-width: 1.5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.6;
+    filter: url(#filter-flowing-line);
+}
+
+.bwo-glitch-overlay, .screen-effect-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9990; 
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.1); 
+}
+
+.bwo-fragment {
+    position: absolute;
+    background-color: var(--color-accent5); 
+    opacity: 0; 
+    box-shadow: 0 0 10px var(--color-accent5), 0 0 20px var(--color-accent5);
+    border-radius: 2px;
+    mix-blend-mode: screen;
+}
+
+#global-message-popup {
+    border: 1px solid var(--color-accent6);
+    box-shadow: 0 0 15px var(--color-accent6);
+}
+
+
+/* Dynamic Text Popup Animations */
+@keyframes text-glitch-in {
+    0% { opacity: 0; transform: translateX(-20px) skewX(-30deg); filter: hue-rotate(180deg) saturate(3); }
+    20% { opacity: 1; transform: translateX(0) skewX(0); text-shadow: 0 0 5px red, 0 0 10px blue; }
+    40% { opacity: 0.5; transform: translateX(10px) skewX(10deg); filter: hue-rotate(0deg) saturate(1); }
+    60% { opacity: 1; transform: translateX(-5px) skewX(-5deg); text-shadow: none; }
+    100% { opacity: 1; transform: translateX(0) skewX(0); }
+}
+.text-anim-glitch-in { animation: text-glitch-in 0.5s forwards; }
+
+@keyframes text-typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+.text-anim-typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .1em solid var(--color-accent2); /* cursor */
+    animation: text-typewriter 1s steps(30, end) forwards, blink-caret .75s step-end infinite;
+}
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--color-accent2); } }
+
+@keyframes text-fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.text-anim-fade-in-up { animation: text-fade-in-up 0.4s ease-out forwards; }
+
+/* BWO Attempt Effects */
+.bwo-screen-tear-strip {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    animation: bwo-tear-anim 0.1s infinite alternate;
+}
+.bwo-screen-tear-strip > div {
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed; /* Crucial for screen content */
+    background-position: inherit; /* Inherit from JS calc */
+    animation: bwo-tear-content-shift-anim 0.05s infinite alternate;
+}
+@keyframes bwo-tear-anim {
+    0% { clip-path: inset(0 0 0 0); transform: translateX(-5px); }
+    100% { clip-path: inset(0 0 0 0); transform: translateX(5px); } /* Will be randomized by JS */
+}
+@keyframes bwo-tear-content-shift-anim {
+    0% { transform: translateX(-2px) scale(1.01); }
+    100% { transform: translateX(2px) scale(1.01); }
+}
+
+.bwo-pixelation-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--pixel-cols, 40), 1fr);
+    grid-template-rows: repeat(var(--pixel-rows, 30), 1fr);
+    z-index: 9995;
+}
+.bwo-pixelation-overlay > div {
+    animation: bwo-pixel-flash 0.2s infinite alternate;
+    opacity: 0.7;
+}
+@keyframes bwo-pixel-flash {
+    0% { background-color: hsla(var(--h,0), 80%, 60%, 0.5); opacity: 0.3; }
+    100% { background-color: hsla(var(--h), 80%, 60%, 0.9); opacity: 0.8; transform: scale(1.1); }
+}
+
+.bwo-color-burst-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 9994;
+    animation: bwo-color-burst 0.3s infinite linear;
+    mix-blend-mode: overlay; /* or screen, hard-light */
+}
+@keyframes bwo-color-burst {
+    0% { background-color: hsla(0, 100%, 50%, 0.3); }
+    25% { background-color: hsla(90, 100%, 50%, 0.3); }
+    50% { background-color: hsla(180, 100%, 50%, 0.3); }
+    75% { background-color: hsla(270, 100%, 50%, 0.3); }
+    100% { background-color: hsla(360, 100%, 50%, 0.3); }
+}
+
+.bwo-scanlines-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 9993;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.2) 3px,
+        rgba(0,0,0,0.2) 4px
+    );
+    animation: bwo-scanlines-move 5s linear infinite;
+}
+@keyframes bwo-scanlines-move {
+    from { background-position-y: 0; }
+    to { background-position-y: 100px; } /* Adjust for speed */
+}
+
+.rhizome-bg-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+@keyframes rhizome-noise {
+  0%, 100% { background-position: 0 0; }
+  10% { background-position: -5% -10%; }
+  20% { background-position: -15% 5%; }
+  30% { background-position: 7% -25%; }
+  40% { background-position: 20% 25%; }
+  50% { background-position: -25% 10%; }
+  60% { background-position: 15% 5%; }
+  70% { background-position: 0% 15%; }
+  80% { background-position: 25% 35%; }
+  90% { background-position: -10% 10%; }
+}
+
+.rhizome-noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 200px 200px; /* Control noise scale */
+    animation: rhizome-noise 2s steps(5, end) infinite both;
+    mix-blend-mode: overlay;
+    opacity: 0.1;
+}
+
+@keyframes rhizome-shifting-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.rhizome-gradient-overlay {
+    background: linear-gradient(135deg, 
+        hsla(var(--g1h, 280), 70%, 30%, 0.3), 
+        hsla(var(--g2h, 330), 70%, 40%, 0.4), 
+        hsla(var(--g3h, 20), 70%, 35%, 0.3),
+        hsla(var(--g4h, 180), 70%, 40%, 0.4)
+    );
+    background-size: 400% 400%;
+    animation: rhizome-shifting-gradient 20s ease infinite;
+    mix-blend-mode: hard-light;
+    opacity: 0.4;
+}
+
+
+.scene-distortion-effect {
+    animation: scene-distort 5s ease-in-out infinite alternate;
+}
+@keyframes scene-distort {
+    0% { filter: blur(0.5px) hue-rotate(0deg) contrast(1.1) saturate(1.1); }
+    33% { filter: blur(0px) hue-rotate(15deg) contrast(1) saturate(1.2); }
+    66% { filter: blur(1px) hue-rotate(-10deg) contrast(1.2) saturate(1); }
+    100% { filter: blur(0.5px) hue-rotate(5deg) contrast(1.1) saturate(1.1); }
+}
+
+
+#dynamic-popup-container { /* Ensure it has backdrop-filter for blur */
+    backdrop-filter: blur(4px); /* Tailwind's backdrop-blur-sm might be 4px or similar */
+}
+
+/* SVG Filter for flowing lines in Rhizome */
+#svg-filters { display: none; } /* Hide the SVG filters definition */
+
+/* Updated input styling to match organic theme */
+input[type="text"] {
+    background: rgba(201, 169, 110, 0.05);
+    border: 2px solid var(--color-accent2);
+    color: var(--color-text-primary);
+    padding: 12px 20px;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    
+    /* Organic shape */
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+    
+    /* Glass morphism effect */
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(201, 169, 110, 0.1);
+    
+    /* Subtle floating animation */
+    animation: input-gentle-float 12s ease-in-out infinite;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-accent1);
+    background: rgba(201, 169, 110, 0.1);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    box-shadow: 
+        0 8px 32px rgba(201, 169, 110, 0.2),
+        inset 0 1px 0 rgba(201, 169, 110, 0.2),
+        0 0 0 1px var(--color-accent1);
+    
+    /* Gentle pulse */
+    animation: input-gentle-float 12s ease-in-out infinite, input-focus-pulse 2s ease-in-out infinite;
+}
+
+input[type="text"]::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+@keyframes input-gentle-float {
+    0%, 100% { 
+        transform: translateY(0px);
+        border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+    }
+    50% { 
+        transform: translateY(-3px);
+        border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    }
+}
+
+@keyframes input-focus-pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(201, 169, 110, 0.2), inset 0 1px 0 rgba(201, 169, 110, 0.2), 0 0 0 1px var(--color-accent1); }
+    50% { box-shadow: 0 8px 32px rgba(201, 169, 110, 0.3), inset 0 1px 0 rgba(201, 169, 110, 0.3), 0 0 0 2px var(--color-accent1); }
+}
+
+/* ========================================
+   Philosophical Theatre Background Layers
+   ======================================== */
+
+/* Layer 1: The Void - Base philosophical emptiness */
+.theatre-void-layer {
+    background: 
+        radial-gradient(ellipse at 20% 30%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(124, 152, 133, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(139, 115, 85, 0.04) 0%, transparent 70%),
+        linear-gradient(135deg, 
+            var(--color-bg-main) 0%, 
+            var(--color-bg-secondary) 40%, 
+            #0a0a1f 100%);
+    animation: void-pulse 20s ease-in-out infinite;
+}
+
+@keyframes void-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        filter: blur(0px) contrast(1);
+    }
+    50% { 
+        transform: scale(1.02);
+        filter: blur(0.5px) contrast(1.1);
+    }
+}
+
+/* Layer 2: Geometric Fragments - Deconstructed forms */
+.theatre-fragments-layer {
+    background-size: 100% 100%;
+    animation: fragments-drift 30s linear infinite;
+    opacity: 0.6;
+}
+
+.theatre-fragments-layer::before,
+.theatre-fragments-layer::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    animation: fragment-dance 25s ease-in-out infinite;
+}
+
+.theatre-fragments-layer::before {
+    background-image: 
+        /* Floating triangles */
+        conic-gradient(from 45deg at 15% 25%, transparent 120deg, rgba(201, 169, 110, 0.1) 125deg, transparent 130deg),
+        conic-gradient(from 180deg at 75% 40%, transparent 60deg, rgba(124, 152, 133, 0.08) 65deg, transparent 70deg),
+        conic-gradient(from 270deg at 40% 70%, transparent 90deg, rgba(139, 115, 85, 0.06) 95deg, transparent 100deg),
+        /* Broken circles */
+        radial-gradient(circle at 25% 60%, transparent 40px, rgba(201, 169, 110, 0.05) 42px, rgba(201, 169, 110, 0.05) 44px, transparent 46px),
+        radial-gradient(circle at 80% 25%, transparent 30px, rgba(124, 152, 133, 0.04) 32px, rgba(124, 152, 133, 0.04) 34px, transparent 36px);
+    animation-delay: 0s;
+}
+
+.theatre-fragments-layer::after {
+    background-image:
+        /* Abstract lines */
+        linear-gradient(45deg, transparent 48%, rgba(155, 140, 232, 0.03) 49%, rgba(155, 140, 232, 0.03) 51%, transparent 52%),
+        linear-gradient(135deg, transparent 48%, rgba(150, 206, 180, 0.04) 49%, rgba(150, 206, 180, 0.04) 51%, transparent 52%),
+        /* Scattered dots */
+        radial-gradient(circle at 60% 80%, rgba(201, 169, 110, 0.08) 2px, transparent 3px),
+        radial-gradient(circle at 20% 90%, rgba(124, 152, 133, 0.06) 1px, transparent 2px),
+        radial-gradient(circle at 90% 60%, rgba(139, 115, 85, 0.05) 1.5px, transparent 2.5px);
+    animation-delay: -10s;
+}
+
+@keyframes fragment-dance {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.4;
+    }
+    25% { 
+        transform: translate(-20px, -30px) rotate(5deg) scale(1.05);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translate(10px, -15px) rotate(-3deg) scale(0.95);
+        opacity: 0.3;
+    }
+    75% { 
+        transform: translate(-10px, 20px) rotate(2deg) scale(1.02);
+        opacity: 0.5;
+    }
+}
+
+@keyframes fragments-drift {
+    0% { 
+        background-position: 0% 0%, 100% 100%, 50% 0%;
+        filter: hue-rotate(0deg);
+    }
+    25% { 
+        background-position: -10% 5%, 95% 105%, 60% -5%;
+        filter: hue-rotate(5deg);
+    }
+    50% { 
+        background-position: 5% -10%, 105% 95%, 40% 10%;
+        filter: hue-rotate(-5deg);
+    }
+    75% { 
+        background-position: -5% 8%, 98% 102%, 55% -3%;
+        filter: hue-rotate(3deg);
+    }
+    100% { 
+        background-position: 0% 0%, 100% 100%, 50% 0%;
+        filter: hue-rotate(0deg);
+    }
+}
+
+/* Layer 3: Meaning Decay - Philosophical text fragments */
+.theatre-meaning-decay-layer {
+    opacity: 0.15;
+    animation: meaning-dissolution 40s ease-in-out infinite;
+    font-family: var(--font-mono, 'SF Mono', Monaco, monospace);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.theatre-meaning-decay-layer::before {
+    content: 
+        "存在 significance void 虚无 existence" 
+        " ∑ meaning ∅ 解构 chaos ⚡ reality" 
+        " symbols 符号 ≈ truth ∞ illusion" 
+        " 意义 deconstruction ◊ void 空洞" 
+        " ∆ knowledge 知识 ¿ question 问题" 
+        " language 语言 ⁂ broken 破碎 ※";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    white-space: pre;
+    word-wrap: break-word;
+    line-height: 3;
+    letter-spacing: 8px;
+    transform: rotate(-15deg);
+    animation: text-drift 50s linear infinite;
+    filter: blur(1px);
+}
+
+.theatre-meaning-decay-layer::after {
+    content: 
+        "Deleuze 德勒兹 ◊ simulacra 拟像" 
+        " Derrida 德里达 ≈ différance 延异" 
+        " Baudrillard 鲍德里亚 ∞ hyperreality" 
+        " 福柯 Foucault ∅ discourse 话语" 
+        " rhizome 根茎 ∑ multiplicity 多样性" 
+        " 齐泽克 Žižek ∆ ideology 意识形态";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    right: -50%;
+    white-space: pre;
+    word-wrap: break-word;
+    line-height: 4;
+    letter-spacing: 12px;
+    transform: rotate(20deg);
+    animation: text-drift 60s linear infinite reverse;
+    filter: blur(1.5px);
+    opacity: 0.7;
+}
+
+@keyframes meaning-dissolution {
+    0%, 100% { 
+        opacity: 0.1;
+        filter: blur(2px) contrast(0.8);
+    }
+    33% { 
+        opacity: 0.2;
+        filter: blur(1px) contrast(1.2);
+    }
+    66% { 
+        opacity: 0.15;
+        filter: blur(3px) contrast(0.6);
+    }
+}
+
+@keyframes text-drift {
+    0% { 
+        transform: translateX(0) translateY(0) rotate(-15deg) skewX(0deg);
+    }
+    25% { 
+        transform: translateX(-100px) translateY(-50px) rotate(-10deg) skewX(-2deg);
+    }
+    50% { 
+        transform: translateX(-200px) translateY(0px) rotate(-20deg) skewX(1deg);
+    }
+    75% { 
+        transform: translateX(-300px) translateY(30px) rotate(-5deg) skewX(-1deg);
+    }
+    100% { 
+        transform: translateX(-400px) translateY(0) rotate(-15deg) skewX(0deg);
+    }
+}
+
+/* Enhanced theatre-specific visual effects */
+.theatre-void-layer,
+.theatre-fragments-layer,
+.theatre-meaning-decay-layer {
+    mix-blend-mode: screen;
+}
+
+.theatre-void-layer {
+    mix-blend-mode: normal;
+}
+
+.theatre-fragments-layer {
+    mix-blend-mode: overlay;
+}
+
+.theatre-meaning-decay-layer {
+    mix-blend-mode: soft-light;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .theatre-meaning-decay-layer {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+    
+    .theatre-meaning-decay-layer::before,
+    .theatre-meaning-decay-layer::after {
+        line-height: 2.5;
+        letter-spacing: 6px;
+    }
+}
+
