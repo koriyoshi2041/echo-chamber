@@ -52,43 +52,38 @@
 /assets/js/*.js
   Cache-Control: public, max-age=3600
 
-# 游戏目录 - 完全宽松的策略用于测试
+# 游戏目录 - 超宽松CSP策略
 /9o9xlpa/*
   Content-Security-Policy: default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src *; connect-src *; frame-ancestors *;
   X-Frame-Options: ALLOWALL
   Cache-Control: public, max-age=86400
 
-# Service Worker不缓存
+# Service Worker
 /service-worker.js
   Cache-Control: no-cache, no-store, must-revalidate
 
-# 静态资源长期缓存
+# Manifest
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# Assets
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/assets/css/*.css
-  Cache-Control: public, max-age=3600
-
-/assets/js/*.js
-  Cache-Control: public, max-age=3600
-
+# File types
 /*.html
-  # Cache HTML for shorter time
   Cache-Control: public, max-age=3600
 
 /*.css
-  # Cache CSS
   Cache-Control: public, max-age=31536000, immutable
 
 /*.js
-  # Cache JavaScript
   Cache-Control: public, max-age=31536000, immutable
 
 /*.json
-  # Cache JSON files
   Cache-Control: public, max-age=86400
 
-# 主站点默认规则（放在最后）
+# Default for everything else
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
