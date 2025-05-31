@@ -3,24 +3,29 @@
  * Provides offline functionality and performance optimization
  */
 
-const CACHE_NAME = 'echo-chamber-v1.0.0';
-const STATIC_CACHE = 'echo-chamber-static-v1.0.0';
-const DYNAMIC_CACHE = 'echo-chamber-dynamic-v1.0.0';
+const CACHE_NAME = 'echo-chamber-v1.2.0';
+const STATIC_CACHE = 'echo-chamber-static-v1.2.0';
+const DYNAMIC_CACHE = 'echo-chamber-dynamic-v1.2.0';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
   '/',
   '/styles/main.css',
   '/js/echo-chamber.js',
+  '/assets/css/philosophical-portal.css',
+  '/assets/js/philosophical-portal.js',
   '/manifest.json',
   '/assets/icons/favicon.svg',
   '/assets/icons/icon-192x192.png',
-  '/assets/icons/icon-512x512.png'
+  '/assets/icons/icon-512x512.png',
+  '/9o9xlPa/index.html',
+  '/9o9xlPa/style.css',
+  '/9o9xlPa/main.js'
 ];
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installing...');
+  console.log('Service Worker: Installing v1.2.0...');
   
   event.waitUntil(
     caches.open(STATIC_CACHE)
@@ -40,7 +45,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activating...');
+  console.log('Service Worker: Activating v1.2.0...');
   
   event.waitUntil(
     caches.keys()
