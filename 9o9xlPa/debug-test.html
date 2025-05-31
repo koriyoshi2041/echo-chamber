@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试测试页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #0a0a0a; color: white; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #2d5016; border: 1px solid #4caf50; }
+        .error { background: #5d1a1a; border: 1px solid #f44336; }
+        .info { background: #1a3a5d; border: 1px solid #2196f3; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript 模块加载测试</h1>
+    <div id="test-results"></div>
+    
+    <script>
+        const results = document.getElementById('test-results');
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+            console.log(message);
+        }
+        
+        addResult('开始测试...', 'info');
+        
+        // 测试1: 基本JavaScript功能
+        try {
+            addResult('✓ 基本JavaScript功能正常', 'success');
+        } catch (e) {
+            addResult('✗ 基本JavaScript功能失败: ' + e.message, 'error');
+        }
+        
+        // 测试2: ES模块支持
+        if ('type' in document.createElement('script')) {
+            addResult('✓ 浏览器支持ES模块', 'success');
+        } else {
+            addResult('✗ 浏览器不支持ES模块', 'error');
+        }
+        
+        // 测试3: framer-motion CDN
+        addResult('正在测试framer-motion CDN...', 'info');
+        
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.textContent = `
+            try {
+                const framerMotion = await import('https://esm.run/framer-motion');
+                console.log('framer-motion loaded:', framerMotion);
+                document.getElementById('test-results').insertAdjacentHTML('beforeend', 
+                    '<div class="test-result success">✓ framer-motion CDN 加载成功</div>');
+            } catch (error) {
+                console.error('framer-motion loading failed:', error);
+                document.getElementById('test-results').insertAdjacentHTML('beforeend', 
+                    '<div class="test-result error">✗ framer-motion CDN 加载失败: ' + error.message + '</div>');
+            }
+        `;
+        document.head.appendChild(script);
+        
+        // 测试4: 本地模块导入
+        setTimeout(() => {
+            const localScript = document.createElement('script');
+            localScript.type = 'module';
+            localScript.textContent = `
+                try {
+                    const texts = await import('./game_texts.js');
+                    console.log('game_texts loaded:', texts);
+                    document.getElementById('test-results').insertAdjacentHTML('beforeend', 
+                        '<div class="test-result success">✓ 本地game_texts.js模块加载成功</div>');
+                } catch (error) {
+                    console.error('game_texts loading failed:', error);
+                    document.getElementById('test-results').insertAdjacentHTML('beforeend', 
+                        '<div class="test-result error">✗ 本地game_texts.js模块加载失败: ' + error.message + '</div>');
+                }
+            `;
+            document.head.appendChild(localScript);
+        }, 1000);
+        
+        // 测试5: 检查DOM元素
+        setTimeout(() => {
+            const gameWorld = document.getElementById('game-world');
+            if (gameWorld) {
+                addResult('✓ 在原始页面中找到game-world元素', 'success');
+            } else {
+                addResult('✗ 未找到game-world元素', 'error');
+            }
+        }, 2000);
+    </script>
+</body>
+</html> 
