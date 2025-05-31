@@ -3,9 +3,9 @@
  * Provides offline functionality and performance optimization
  */
 
-const CACHE_NAME = 'echo-chamber-v1.2.0';
-const STATIC_CACHE = 'echo-chamber-static-v1.2.0';
-const DYNAMIC_CACHE = 'echo-chamber-dynamic-v1.2.0';
+const CACHE_PREFIX = 'echo-chamber';
+const STATIC_CACHE = `${CACHE_PREFIX}-static-v1.3.0`;
+const DYNAMIC_CACHE = `${CACHE_PREFIX}-dynamic-v1.3.0`;
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -20,12 +20,17 @@ const STATIC_ASSETS = [
   '/assets/icons/icon-512x512.png',
   '/9o9xlPa/index.html',
   '/9o9xlPa/style.css',
-  '/9o9xlPa/main.js'
+  '/9o9xlPa/main.js',
+  '/9o9xlPa/game_texts.js',
+  '/9o9xlPa/scenes/rhizome_labyrinth.js',
+  '/9o9xlPa/scenes/symbol_theatre.js',
+  '/9o9xlPa/utils/visual_effects.js',
+  '/9o9xlPa/utils/animations.js'
 ];
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installing v1.2.0...');
+  console.log('Service Worker: Installing v1.3.0...');
   
   event.waitUntil(
     caches.open(STATIC_CACHE)
@@ -45,7 +50,7 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activating v1.2.0...');
+  console.log('Service Worker: Activating v1.3.0...');
   
   event.waitUntil(
     caches.keys()
@@ -90,10 +95,15 @@ self.addEventListener('fetch', (event) => {
           return cachedResponse;
         }
         
+        // Create a new request with proper redirect mode
+        const fetchRequest = new Request(request, {
+          redirect: 'follow'
+        });
+        
         // Fetch from network and cache for future use
-        return fetch(request)
+        return fetch(fetchRequest)
           .then((response) => {
-            // Don't cache if not successful
+            // Don't cache if not successful or if it's a redirect
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
