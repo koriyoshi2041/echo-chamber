@@ -1,3 +1,2 @@
 /9o9xlpa/*
   X-EchoCham-Test: HelloGamePath123
-  Content-Security-Policy: default-src 'self' https://cdn.tailwindcss.com https://unpkg.com https://esm.run; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://esm.run; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://esm.run https://unpkg.com https://cdn.tailwindcss.com https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';
