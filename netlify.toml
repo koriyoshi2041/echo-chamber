@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# 游戏目录 - 宽松CSP策略
+[[headers]]
+  for = "/9o9xlpa/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://esm.run; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://esm.run https://unpkg.com; frame-src 'self'; object-src 'none'; base-uri 'self';"
+
+# 全局安全headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -13,6 +20,7 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
 
 [[headers]]
   for = "/*.js"
@@ -34,7 +42,9 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# SPA重定向，但不影响现有文件
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+  force = false 
