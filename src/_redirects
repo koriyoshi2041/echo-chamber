@@ -1,4 +1,7 @@
-# Single Page Application fallback
+# 游戏目录不重定向
+/9o9xlPa/*  /9o9xlPa/:splat  200
+
+# Single Page Application fallback (排除游戏目录)
 /*    /index.html   200
 
 # Redirect old paths (if any)
