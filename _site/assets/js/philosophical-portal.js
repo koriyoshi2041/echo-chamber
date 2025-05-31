@@ -108,7 +108,7 @@ class PhilosophicalPortal {
         
         // 直接跳转到游戏页面，而不是使用iframe
         // 这样可以避免相对路径和CSP问题
-        const gameURL = '/9o9xlPa/index.html';
+        const gameURL = '/9o9xlpa/index.html';
         
         // 保存返回URL到sessionStorage
         sessionStorage.setItem('echoChamberReturnURL', window.location.href);

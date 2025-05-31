@@ -18,14 +18,14 @@ const STATIC_ASSETS = [
   '/assets/icons/favicon.svg',
   '/assets/icons/icon-192x192.png',
   '/assets/icons/icon-512x512.png',
-  '/9o9xlPa/index.html',
-  '/9o9xlPa/style.css',
-  '/9o9xlPa/main.js',
-  '/9o9xlPa/game_texts.js',
-  '/9o9xlPa/scenes/rhizome_labyrinth.js',
-  '/9o9xlPa/scenes/symbol_theatre.js',
-  '/9o9xlPa/utils/visual_effects.js',
-  '/9o9xlPa/utils/animations.js'
+  '/9o9xlpa/index.html',
+  '/9o9xlpa/style.css',
+  '/9o9xlpa/main.js',
+  '/9o9xlpa/game_texts.js',
+  '/9o9xlpa/scenes/rhizome_labyrinth.js',
+  '/9o9xlpa/scenes/symbol_theatre.js',
+  '/9o9xlpa/utils/visual_effects.js',
+  '/9o9xlpa/utils/animations.js'
 ];
 
 // Install event - cache static assets

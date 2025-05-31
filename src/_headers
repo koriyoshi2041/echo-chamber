@@ -53,7 +53,7 @@
   Cache-Control: public, max-age=3600
 
 # 游戏目录 - 宽松的CSP策略（必须放在最前面）
-/9o9xlPa/*
+/9o9xlpa/*
   Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self' https://echocham.netlify.app localhost:*;
   X-Frame-Options: SAMEORIGIN
   Cache-Control: public, max-age=86400
