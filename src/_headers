@@ -38,4 +38,27 @@
   
 /assets/*
   # Cache assets for a long time
-  Cache-Control: public, max-age=31536000, immutable 
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=86400
+  
+/*.js
+  Cache-Control: public, max-age=86400
+
+/assets/css/*.css
+  Cache-Control: public, max-age=3600
+
+/assets/js/*.js
+  Cache-Control: public, max-age=3600
+
+/9o9xlPa/*
+  Cache-Control: public, max-age=86400
+
+# CSP for main site
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
+
+# More permissive CSP for game
+/9o9xlPa/*
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self' https://echocham.netlify.app; 

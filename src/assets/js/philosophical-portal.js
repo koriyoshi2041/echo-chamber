@@ -122,15 +122,80 @@ class PhilosophicalPortal {
             background: var(--primary-bg, #0f0f23);
         `;
         
+        // 首先显示加载信息
+        const loadingDiv = document.createElement('div');
+        loadingDiv.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-primary, #f8f6f0);
+            font-size: 18px;
+            text-align: center;
+        `;
+        loadingDiv.innerHTML = '正在加载哲学游戏...<br><small>Loading philosophical game...</small>';
+        this.gameContainer.appendChild(loadingDiv);
+        
         // 加载游戏iframe
         const gameFrame = document.createElement('iframe');
-        gameFrame.src = '/9o9xlPa/index.html';
         gameFrame.style.cssText = `
             width: 100%;
             height: 100%;
             border: none;
             background: var(--primary-bg, #0f0f23);
+            display: none;
         `;
+        
+        // 错误处理
+        gameFrame.onerror = () => {
+            console.error('Failed to load game iframe');
+            loadingDiv.innerHTML = `
+                <h3>游戏加载失败 / Game Loading Failed</h3>
+                <p>请稍后重试或检查网络连接<br>Please try again later or check your connection</p>
+                <button onclick="this.closest('#philosophical-game-container').remove();" 
+                        style="padding: 10px 20px; margin-top: 20px; cursor: pointer;">
+                    返回 / Return
+                </button>
+            `;
+        };
+        
+        // 成功加载
+        gameFrame.onload = () => {
+            console.log('Game iframe loaded successfully');
+            loadingDiv.style.display = 'none';
+            gameFrame.style.display = 'block';
+        };
+        
+        // 设置游戏路径 - 尝试多个可能的路径
+        const gamePaths = ['/9o9xlPa/index.html', './9o9xlPa/index.html', '9o9xlPa/index.html'];
+        let currentPathIndex = 0;
+        
+        const tryLoadGame = () => {
+            if (currentPathIndex >= gamePaths.length) {
+                loadingDiv.innerHTML = `
+                    <h3>无法找到游戏文件 / Game Files Not Found</h3>
+                    <p>游戏可能正在部署中，请稍后重试<br>Game may be deploying, please try again later</p>
+                    <button onclick="this.closest('#philosophical-game-container').remove();" 
+                            style="padding: 10px 20px; margin-top: 20px; cursor: pointer;">
+                        返回 / Return
+                    </button>
+                `;
+                return;
+            }
+            
+            gameFrame.src = gamePaths[currentPathIndex];
+            console.log(`Trying to load game from: ${gamePaths[currentPathIndex]}`);
+            
+            // 如果5秒内没有加载成功，尝试下一个路径
+            setTimeout(() => {
+                if (gameFrame.style.display === 'none') {
+                    currentPathIndex++;
+                    tryLoadGame();
+                }
+            }, 5000);
+        };
+        
+        tryLoadGame();
         
         // 添加返回按钮
         const backButton = document.createElement('button');
@@ -171,7 +236,7 @@ class PhilosophicalPortal {
         // 添加ESC键退出功能
         document.addEventListener('keydown', this.handleEscapeKey.bind(this));
         
-        console.log('Game loaded successfully');
+        console.log('Game container created and added to page');
     }
 
     exitGame() {
